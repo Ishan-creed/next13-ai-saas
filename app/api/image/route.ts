@@ -51,6 +51,7 @@ export async function POST(
       n: parseInt(amount, 10),
       size: resolution,
     });
+    console.log('[OPENAI_API_RESPONSE]', response.data);
 
     if (!isPro) {
       await incrementApiLimit();

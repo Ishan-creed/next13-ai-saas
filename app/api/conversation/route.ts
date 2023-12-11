@@ -43,13 +43,19 @@ export async function POST(
       messages
     });
 
+    console.log(response.data.choices);
+    
+
     if (!isPro) {
       await incrementApiLimit();
     }
+
+    
 
     return NextResponse.json(response.data.choices[0].message);
   } catch (error) {
     console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
+    
   }
 };
